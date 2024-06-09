@@ -1,0 +1,42 @@
+.dashboard {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../../public/assets/images/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  & > main {
+    width: calc(100vw - var(--left-drawer-width));
+    overflow: hidden auto;
+  }
+}
+
+.main-container {
+  padding: 0.625rem;
+  .btn-groups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: initial;
+    margin: -4px;
+    & > .btn {
+      margin: 4px;
+    }
+  }
+}
+
+.room-card-view-container {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  .room-info {
+    --room-color: var(--color-game-blue);
+    --room-b-r: 0.625rem;
+    background-image: url('../../../public/assets/images/card/server-info.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

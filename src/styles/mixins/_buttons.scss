@@ -1,0 +1,60 @@
+@mixin makeBSButtonStyle($buttonType: 'bg', $type: '', $c, $bg, $borderC) {
+  --bs-btn#{$type}-color: #{$c};
+  --bs-btn#{$type}-bg: #{$bg};
+  --bs-btn#{$type}-border-color: #{$borderC};
+}
+
+@mixin applyBSBtnStyle(
+  //--- required: $c, $bg, $borderC
+  $c,
+  $bg,
+  $borderC,
+  //--- optional
+  // button type: 'bg' || 'outline'
+  $buttonType: 'bg',
+  // hover
+  $hoverC: $c,
+  $hoverBg: $bg,
+  $hoverBorderC: $borderC,
+  // active
+  $activeC: $c,
+  $activeBg: $bg,
+  $activeBorderC: $borderC,
+  // disabled
+  $disabledC: $c,
+  $disabledBg: $bg,
+  $disabledBorderC: $borderC
+) {
+  // base
+  @include makeBSButtonStyle($c: $c, $bg: $bg, $borderC: $borderC);
+  // hover
+  @include makeBSButtonStyle(
+    $type: '-hover',
+    $c: $hoverC,
+    $bg: $hoverBg,
+    $borderC: $hoverBorderC
+  );
+  // active
+  @include makeBSButtonStyle(
+    $type: '-active',
+    $c: $activeC,
+    $bg: $activeBg,
+    $borderC: $activeBorderC
+  );
+  // disabled
+  @include makeBSButtonStyle(
+    $type: '-disabled',
+    $c: $disabledC,
+    $bg: $disabledBg,
+    $borderC: $disabledBorderC
+  );
+  // other
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  @if $buttonType == 'bg' {
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  } @else {
+    // outline btn
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-gradient: none;
+  }
+}

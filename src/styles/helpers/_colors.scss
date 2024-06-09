@@ -1,0 +1,37 @@
+.text-color-game-red {
+  color: var(--color-game-red);
+}
+
+.text-color-game-blue {
+  color: var(--color-game-blue);
+}
+
+.text-color-game-green {
+  color: var(--color-game-green);
+}
+
+.text-color-game-yellow {
+  color: var(--color-game-yellow);
+}
+
+.text-color-contentPrimary {
+  color: var(--color-contentPrimary);
+}
+
+.text-color-contentSecondary {
+  color: var(--color-contentSecondary);
+}
+
+.text-color-contentTertiary {
+  color: var(--color-contentTertiary);
+}
+
+.text-color-contentQuaternary {
+  color: var(--color-contentQuaternary);
+}
+
+.first-letter-game-red {
+  &::first-letter {
+    color: var(--color-game-red);
+  }
+}

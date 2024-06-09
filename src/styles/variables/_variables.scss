@@ -1,0 +1,33 @@
+$colorsGame: 'red' '235, 75, 75', 'blue' '75, 105, 255', 'yellow' '240, 174, 52',
+  'green' '115, 195, 65';
+
+:root {
+  --color-white: rgba(255, 255, 255, 1);
+  --color-dark: rgba(0, 0, 0, 1);
+  --color-contentPrimary: rgba(255, 255, 255, 1);
+  --color-contentSecondary: rgba(217, 217, 217, 1);
+  --color-contentTertiary: rgba(80, 80, 80, 1);
+  --color-contentQuaternary: rgba(151, 151, 151, 1);
+  --color-bgPrimary: rgba(12, 16, 26, 1);
+  --color-bgSecondary: rgba(255, 255, 255, 0.05);
+  --left-drawer-width: 70px;
+  --header-height: 60px;
+  // colors game
+  @each $name, $rgb in $colorsGame {
+    @for $i from 1 through 10 {
+      @if $i != 10 {
+        --color-game-#{$name}-0-#{$i}: rgba(#{$rgb}, #{calc($i / 10)});
+      } @else {
+        --color-game-#{$name}: rgba(#{$rgb}, 1);
+      }
+    }
+  }
+  // color overlay
+  @for $i from 1 through 9 {
+    --color-overlay-0-#{$i}: rgba(0, 0, 0, #{calc($i / 10)});
+  }
+}
+
+body {
+  font-family: 'Saira Extra Condensed', sans-serif;
+}

@@ -1,0 +1,11 @@
+.drawer {
+  @include media-breakpoint-up(md) {
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+    }
+    .logo-text {
+      font-size: 1.125rem;
+    }
+  }
+}

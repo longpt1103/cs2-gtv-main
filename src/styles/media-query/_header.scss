@@ -1,0 +1,25 @@
+.header {
+  @include media-breakpoint-up(md) {
+    height: var(--header-height);
+    padding: 0 0.75rem;
+    .nav-item {
+      & > * + * {
+        margin-left: 1.25rem;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .nav-item-left {
+      display: none !important;
+    }
+    .nav-item-right {
+      & > * {
+        margin-top: 1rem;
+      }
+    }
+    .avatar-group {
+      margin-top: 0;
+      order: -1;
+    }
+  }
+}

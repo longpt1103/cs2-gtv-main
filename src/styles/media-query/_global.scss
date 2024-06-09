@@ -1,0 +1,22 @@
+:root {
+  @include media-breakpoint-up(sm) {
+    --left-drawer-width: 80px;
+  }
+  @include media-breakpoint-up(md) {
+    --left-drawer-width: 100px;
+  }
+}
+
+.main-container {
+  .btn-groups {
+    @include media-breakpoint-up(md) {
+      margin: 0;
+      flex-wrap: nowrap;
+      align-items: center;
+      & > .btn + .btn {
+        margin: 0;
+        margin-left: 0.625rem;
+      }
+    }
+  }
+}

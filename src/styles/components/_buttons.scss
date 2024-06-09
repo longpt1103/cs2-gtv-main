@@ -1,0 +1,121 @@
+.btn-groups {
+  display: flex;
+  align-items: center;
+  & > * + * {
+    margin-left: 1.25rem;
+  }
+}
+
+.btn {
+  --bs-btn-font-family: 'Saira Extra Condensed', sans-serif;
+  --bs-btn-font-size: 1.25rem;
+  --bs-btn-font-weight: 700;
+  --bs-btn-color: var(--color-contentPrimary);
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.125rem;
+  --bs-btn-border-width: 1px;
+  --bs-border-radius: 0.375rem;
+  &:not([class*='first-letter']) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-icon {
+    --bs-btn-padding-x: 0.25rem;
+    --bs-btn-padding-y: 0.25rem;
+    min-height: 32px;
+    min-width: 32px;
+  }
+  &-wide {
+    --bs-btn-padding-y: 0;
+    min-height: 34px;
+    min-width: 100px;
+  }
+  &--small {
+    --bs-btn-font-size: 1rem;
+    --bs-btn-font-weight: 700;
+  }
+  &--medium {
+    --bs-btn-font-size: 1.25rem;
+    --bs-btn-font-weight: 700;
+  }
+  & > svg {
+    flex: none;
+  }
+}
+
+// btn outline
+.btn-outline-white {
+  @include applyBSBtnStyle(
+    $buttonType: 'outline',
+    $c: var(--color-contentPrimary),
+    $bg: transparent,
+    $borderC: var(--color-contentPrimary)
+  );
+}
+
+.btn-outline-default {
+  @include applyBSBtnStyle(
+    $buttonType: 'outline',
+    $c: var(--color-contentPrimary),
+    $bg: transparent,
+    $borderC: var(--color-contentTertiary)
+  );
+}
+
+// btn background
+.btn-game-red {
+  @include applyBSBtnStyle(
+    $c: var(--color-contentPrimary),
+    $bg: var(--color-game-red),
+    $borderC: var(--color-game-red),
+    $hoverBg: var(--color-game-red-0-9),
+    $hoverBorderC: var(--color-game-red-0-9)
+  );
+}
+
+.btn-game-blue {
+  @include applyBSBtnStyle(
+    $c: var(--color-contentPrimary),
+    $bg: var(--color-game-blue),
+    $borderC: var(--color-game-blue),
+    $hoverBg: var(--color-game-blue-0-9),
+    $hoverBorderC: var(--color-game-blue-0-9)
+  );
+}
+
+.btn-game-green {
+  @include applyBSBtnStyle(
+    $c: var(--color-contentPrimary),
+    $bg: var(--color-game-green),
+    $borderC: var(--color-game-green),
+    $hoverBg: var(--color-game-green-0-9),
+    $hoverBorderC: var(--color-game-green-0-9)
+  );
+}
+
+.btn-game-yellow {
+  @include applyBSBtnStyle(
+    $c: var(--color-contentPrimary),
+    $bg: var(--color-game-yellow),
+    $borderC: var(--color-game-yellow),
+    $hoverBg: var(--color-game-yellow-0-9),
+    $hoverBorderC: var(--color-game-yellow-0-9)
+  );
+}
+
+.btn-default {
+  @include applyBSBtnStyle(
+    $c: var(--color-contentQuaternary),
+    $bg: var(--color-bgSecondary),
+    $borderC: var(--color-bgSecondary)
+  );
+}
+
+.btn-active {
+  @include applyBSBtnStyle(
+    $c: var(--color-game-red),
+    $bg: var(--color-contentPrimary),
+    $borderC: var(--color-contentPrimary)
+  );
+}

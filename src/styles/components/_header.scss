@@ -1,0 +1,34 @@
+.header-top-wrapper {
+  padding: 0.625rem;
+  padding-bottom: 0;
+}
+.header {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--color-bgSecondary);
+}
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .avatar-group {
+    svg.steam-icon {
+      fill: rgba(255, 255, 255, 0.5);
+      & > path {
+        fill: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+  .avatar-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    img.avatar {
+      object-fit: cover;
+      object-position: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+  }
+}

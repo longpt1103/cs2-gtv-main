@@ -1,0 +1,49 @@
+.room-card-view-container {
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .room-info {
+    @include media-breakpoint-up(sm) {
+      background-position: top;
+    }
+    @include media-breakpoint-up(md) {
+      grid-column: 1 / 3;
+    }
+    /*@include media-breakpoint-up(lg) {
+      background-size: contain;
+    }*/
+  }
+}
+
+.room-info {
+  .info {
+    @include media-breakpoint-up(sm) {
+      flex-wrap: nowrap;
+      margin-bottom: 0.75rem;
+      padding: 0;
+    }
+    @include media-breakpoint-up(md) {
+      margin-bottom: 1.25rem;
+    }
+  }
+  .info-item {
+    @include media-breakpoint-up(sm) {
+      flex: 0 0 auto;
+      & + .info-item {
+        margin-left: 3.125rem;
+      }
+    }
+  }
+  .server-info-text {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+}

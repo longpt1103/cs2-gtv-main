@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/IGameServersService/GetServerList/v1",
+      "destination": "https://api.steampowered.com/IGameServersService/GetServerList/v1"
+    }
+  ]
+}
