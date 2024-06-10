@@ -8,7 +8,7 @@ const config = {
   steam: steamProxy,
   steamIGameServersService: ({ query = '', path = '' }) => {
     // const root = process.env.NODE_ENV === 'production' ? steamProxy : ''
-    return `/IGameServersService/${path}/v1/?key=${STEAM_API_KEY}${
+    return `${steamProxy}/IGameServersService/${path}/v1/?key=${STEAM_API_KEY}${
       query ? `&${query}` : ''
     }`
   },
