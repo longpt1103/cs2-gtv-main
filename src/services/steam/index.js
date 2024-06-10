@@ -1,8 +1,10 @@
-import axiosService from 'services/axios'
+import { createService } from 'services/axios'
 import baseUrl from 'services/baseUrl'
 import { FETCH_SERVER_LIST_ALL } from 'utils/constants'
 
-export const getServerList = ({
+const axiosGetService = createService({}, false, true)
+
+export const getServerList = async ({
   filters = [],
   limit = FETCH_SERVER_LIST_ALL,
   ...rest
@@ -20,5 +22,6 @@ export const getServerList = ({
       ...rest,
     }).toString(),
   })
-  return axiosService.get(url)
+
+  return axiosGetService.get(url)
 }
