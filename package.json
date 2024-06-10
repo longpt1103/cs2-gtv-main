@@ -2,7 +2,6 @@
   "name": "cs2",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.steampowered.com",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.14.1",
