@@ -1,8 +1,6 @@
-import { createService } from 'services/axios'
+import { axiosCancel as axiosService } from 'services/axios'
 import baseUrl from 'services/baseUrl'
 import { FETCH_SERVER_LIST_ALL } from 'utils/constants'
-
-const axiosGetService = createService({}, false, true)
 
 export const getServerList = async ({
   filters = [],
@@ -23,5 +21,5 @@ export const getServerList = async ({
     }).toString(),
   })
 
-  return axiosGetService.get(url)
+  return axiosService.get(url)
 }

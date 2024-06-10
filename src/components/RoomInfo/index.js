@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
+import { Spinner } from 'reactstrap'
 import {
   selectTotalPlayers,
   selectIsPendingFetchAll,
@@ -53,8 +54,10 @@ const Item = memo(
       <div className={`info-item info-item--${name}`}>
         <div className="top">
           <Icon />
-          <span className={`text-number text-color-game-${type} text-large`}>
-            {loading ? '' : number}
+          <span
+            className={`d-flex align-items-center justify-content-center text-number text-color-game-${type} text-large`}
+          >
+            {loading ? <Spinner size="sm" /> : number}
           </span>
         </div>
         <div className="bottom text-small">{text}</div>
