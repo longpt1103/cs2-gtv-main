@@ -1,11 +1,16 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { selectSteamId, selectUserInfo } from 'components/auth/selectors'
+import {
+  selectSteamId,
+  selectUserInfo,
+  selectSteamInfoName,
+} from 'components/auth/selectors'
 import { ReactComponent as SteamIcon } from 'assets/icons/steam.svg'
 import { ReactComponent as CheckIcon } from 'assets/icons/check.svg'
 
 const Avatar = () => {
   const steamId = useSelector(selectSteamId)
+  const steamName = useSelector(selectSteamInfoName)
   const userInfo = useSelector(selectUserInfo)
   const avatarUrl = userInfo?.['avatar_url'] || '/assets/images/avatar.png'
   const displayName = userInfo?.['display_name'] || ''
@@ -23,7 +28,7 @@ const Avatar = () => {
         <div className="d-flex align-items-center">
           <SteamIcon className="steam-icon me-2" style={{ flex: 'none' }} />
           <span className="text-color-contentQuaternary user-select-none">
-            {steamId ? steamId : '---'}
+            {steamId ? steamName : '---'}
           </span>
         </div>
       </div>

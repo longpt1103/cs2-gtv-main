@@ -25,12 +25,22 @@ const Header = () => {
                 'd-flex align-items-md-center',
               )}
             >
-              <button className="btn btn-outline-white first-letter-game-red first-letter-game-red">
+              <a
+                rel="noopener noreferrer"
+                href="https://gplay.vn/trangchu"
+                target="_blank"
+                className="btn btn-outline-white first-letter-game-red first-letter-game-red"
+              >
                 GPlay
-              </button>
-              <button className="btn btn-outline-white first-letter-game-red">
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/gplaycs2"
+                target="_blank"
+                className="btn btn-outline-white first-letter-game-red"
+              >
                 GPlay CS2
-              </button>
+              </a>
             </div>
             <Auth />
           </div>

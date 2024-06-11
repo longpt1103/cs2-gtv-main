@@ -19,6 +19,11 @@ export const selectSteamInfo = createSelector(
   (state) => state.steamInfo,
 )
 
+export const selectSteamInfoName = createSelector(
+  [selectSlice],
+  (state) => state.steamInfo?.['display_name'] || '',
+)
+
 export const selectSteamId = createSelector(
   [selectSlice],
   (state) => state.steamId,

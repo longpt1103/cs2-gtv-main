@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom'
 import { routes } from 'route-path'
+import { UncontrolledTooltip } from 'reactstrap'
 import { ReactComponent as LogoIcon } from 'assets/icons/logo.svg'
 import { ReactComponent as BanIcon } from 'assets/icons/ban.svg'
 import { ReactComponent as MutedIcon } from 'assets/icons/muted.svg'
@@ -10,15 +11,28 @@ const navMenu = [
   { id: 3, text: 'Cấm chat', icon: MutedIcon, to: routes.muted },
 ]
 
-const NavLinkItem = ({ text = '', icon: Icon, to }) => {
+const NavLinkItem = ({ id, text = '', icon: Icon }) => {
   return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a className="item" href="#" onClick={(e) => e.preventDefault()}>
-      <Icon className="icon" />
-      <div className="item-text text-normal fw-bold text-color-contentTertiary">
-        {text}
-      </div>
-    </a>
+    <>
+      <a
+        id={'Tooltip-' + id}
+        className="item"
+        href="#"
+        onClick={(e) => e.preventDefault()}
+      >
+        <Icon className="icon" />
+        <span className="item-text text-normal fw-bold text-color-contentTertiary">
+          {text}
+        </span>
+      </a>
+      <UncontrolledTooltip
+        placement="right"
+        target={'Tooltip-' + id}
+        popperClassName="custom-tooltip"
+      >
+        Coming soon
+      </UncontrolledTooltip>
+    </>
   )
 }
 

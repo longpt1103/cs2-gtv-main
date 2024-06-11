@@ -1,9 +1,9 @@
 import {
   FETCH_SERVER_LIMIT,
-  FILTER_GAMEMODE_VALUES,
   defaultPlaying,
   EXPIRE_BEFORE_FETCH_ALL,
 } from 'utils/constants'
+import { isIncludeGameModeParam } from 'utils/route'
 import {
   getLocalStorage,
   STORAGE_KEYS,
@@ -80,7 +80,7 @@ export const getInitServerListPage = () => {
   const location = window.location
   const pathname = location?.pathname || ''
   const [, mode] = pathname.split('/').filter((path) => path)
-  if (mode && FILTER_GAMEMODE_VALUES.includes(mode)) {
+  if (mode && isIncludeGameModeParam(mode)) {
     return getServerListPage(location.search)
   }
   return defaultPage

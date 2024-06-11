@@ -7,7 +7,7 @@ import {
   setPlayingToLocal,
   setLastTimeSavePlaying,
 } from 'utils/steam'
-import { FILTER_GAMEMODE_VALUES } from 'utils/constants'
+import { FETCH_FILTER_GAMEMODE } from 'utils/constants'
 
 const initialState = {
   isPending: false,
@@ -75,7 +75,7 @@ export const slice = createSlice({
       for (let i = 0; i < payload.length; i++) {
         const servers = payload[i]?.response?.servers || []
         const info = getSumServer(servers)
-        const mode = FILTER_GAMEMODE_VALUES[i]
+        const mode = FETCH_FILTER_GAMEMODE[i]
         if (playingState[mode]) {
           playingState[mode] = {
             ...playingState[mode],

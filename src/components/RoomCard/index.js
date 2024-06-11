@@ -6,17 +6,21 @@ import {
   makeGetPlaying,
 } from 'components/steam/selectors'
 import { pushToGameModePath } from 'utils/route'
+import {
+  COMING_SOON_FILTER_GAMEMODE,
+  HIDE_FILTER_GAMEMODE,
+} from 'utils/constants'
 
 const renderStatusText = (type = 'default') => {
   if (type === 'default') return ''
   return type.split('-').join(' ')
 }
 
-const Playing = ({ modePath }) => {
+const Playing = ({ modePath, disabled = false }) => {
   const getPlaying = useMemo(makeGetPlaying, [])
   const isLoading = useSelector(selectIsPendingFetchAll)
   const playing = useSelector((state) => getPlaying(state, modePath))
-  if (isLoading || !modePath) {
+  if (isLoading || !modePath || disabled) {
     return <div className="label label--player" />
   }
   return <div className="label label--player">{`${playing} playing`}</div>
@@ -29,7 +33,11 @@ const RoomCard = ({
   modePath = '',
   onClick,
 }) => {
+  const disabled =
+    COMING_SOON_FILTER_GAMEMODE.includes(modePath) ||
+    HIDE_FILTER_GAMEMODE.includes(modePath)
   const onClickCard = () => {
+    if (disabled) return
     pushToGameModePath(modePath)
     onClick?.()
   }
@@ -46,7 +54,7 @@ const RoomCard = ({
       <img alt="room" src={src} className="room-img" />
       <div className="mt-auto">
         <div className="label label--mode">{mode}</div>
-        <Playing modePath={modePath} />
+        <Playing modePath={modePath} disabled={disabled} />
       </div>
     </div>
   )

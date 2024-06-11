@@ -14,7 +14,19 @@ export const FILTER_GAMEMODE = {
   clutch: 'clutch',
   zombieEscape: 'zm',
 }
-export const FILTER_GAMEMODE_VALUES = Object.values(FILTER_GAMEMODE)
+
+export const HIDE_FILTER_GAMEMODE = [
+  FILTER_GAMEMODE.deathmatch,
+  FILTER_GAMEMODE.clutch,
+  FILTER_GAMEMODE.zombieEscape,
+]
+export const COMING_SOON_FILTER_GAMEMODE = [
+  FILTER_GAMEMODE.retake,
+  FILTER_GAMEMODE.bhop,
+  FILTER_GAMEMODE.arena,
+]
+export const ROUTE_FILTER_GAMEMODE = [FILTER_GAMEMODE.fivevsfive]
+export const FETCH_FILTER_GAMEMODE = [FILTER_GAMEMODE.fivevsfive]
 
 /**
  * filter exact with query filter to `IGameServersService` steam service
@@ -33,7 +45,7 @@ export const FILTER_GAMEMODE_QUERY = {
 export const FETCH_SERVER_LIST_ALL = 100
 export const FETCH_SERVER_LIMIT = 10 // limit or item per page
 
-export const defaultPlaying = FILTER_GAMEMODE_VALUES.reduce((ob, mode) => {
+export const defaultPlaying = FETCH_FILTER_GAMEMODE.reduce((ob, mode) => {
   ob[mode] = {
     playing: 0,
     maxPlayer: 0,

@@ -28,6 +28,16 @@ const resetState = () => ({
   userInfo: null,
 })
 
+const getSteamInfo = (data = {}) => {
+  return {
+    steamId: data?.['steam_id'] || '',
+    steamInfo: {
+      display_name: data?.['display_name'] || '',
+      avatar_url: data?.['avatar_url'] || '',
+    },
+  }
+}
+
 export const slice = createSlice({
   name: 'auth',
   initialState,
@@ -64,16 +74,15 @@ export const slice = createSlice({
     builder.addCase(fetchLinkSteamAccount.fulfilled, (state, { payload }) => {
       const { response } = payload
       const data = response.Data || response.data || {}
+      const { steamId, steamInfo } = getSteamInfo(data)
       state.isPendingLinkSteamAccount = false
-      state.steamId = data['steam_id'] || ''
-      state.steamInfo = {
-        display_name: data['display_name'] || '',
-        avatar_url: data['avatar_url'] || '',
-      }
+      state.steamId = steamId
+      state.steamInfo = steamInfo
     })
     builder.addCase(fetchLinkSteamAccount.rejected, (state) => {
       state.isPendingLinkSteamAccount = false
       state.steamId = null
+      state.steamInfo = null
     })
     // steam config
     builder.addCase(fetchSteamConfig.pending, (state) => {
@@ -96,8 +105,10 @@ export const slice = createSlice({
     builder.addCase(postVerifierSteam.fulfilled, (state, { payload }) => {
       const { response } = payload
       console.log('postVerifierSteam.fulfilled: ', { response })
-      const steamId = response.Data?.steam_id || response.data?.steam_id || ''
+      const data = response.Data || response.data || {}
+      const { steamId, steamInfo } = getSteamInfo(data)
       state.steamId = steamId
+      state.steamInfo = steamInfo
       state.isPendingVerifier = false
     })
     builder.addCase(postVerifierSteam.rejected, (state) => {

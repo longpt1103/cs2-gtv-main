@@ -1,6 +1,6 @@
 import RoomInfo from 'components/RoomInfo'
 import RoomCard from 'components/RoomCard'
-import { roomCard } from 'data'
+import { filterHideRoomCard as roomCard } from 'data'
 
 const ServerList = () => {
   return (

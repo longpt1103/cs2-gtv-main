@@ -1,7 +1,7 @@
 import { generatePath } from 'react-router-dom'
 import { routes } from 'route-path'
 import history from './history'
-import { FILTER_GAMEMODE_VALUES } from 'utils/constants'
+import { ROUTE_FILTER_GAMEMODE } from 'utils/constants'
 
 export const generateGameModePath = (mode = '') => {
   return generatePath(routes.gamemodeType, { mode })
@@ -19,5 +19,5 @@ export const goToPage = (page) => {
 }
 
 export const isIncludeGameModeParam = (mode = '') => {
-  return FILTER_GAMEMODE_VALUES.includes(mode)
+  return ROUTE_FILTER_GAMEMODE.includes(mode)
 }

@@ -1,8 +1,24 @@
-import { FILTER_GAMEMODE } from 'utils/constants'
+import {
+  FILTER_GAMEMODE,
+  HIDE_FILTER_GAMEMODE,
+  COMING_SOON_FILTER_GAMEMODE,
+} from 'utils/constants'
 
-export const roomCard = [
+const generateItem = (items = []) => {
+  return items.map((item) => {
+    const mode = item.modePath
+    return {
+      ...item,
+      hide: HIDE_FILTER_GAMEMODE.includes(mode),
+      comingSoon: COMING_SOON_FILTER_GAMEMODE.includes(mode),
+    }
+  })
+}
+
+export const roomCard = generateItem([
   {
     id: 1,
+    type: 'new',
     src: '/assets/images/card/room_1.png',
     mode: 'Competitive 5v5',
     modePath: FILTER_GAMEMODE.fivevsfive,
@@ -17,7 +33,7 @@ export const roomCard = [
   },
   {
     id: 3,
-    type: 'new',
+    type: 'coming-soon',
     src: '/assets/images/card/room_3.png',
     mode: 'Retake',
     modePath: FILTER_GAMEMODE.retake,
@@ -33,6 +49,7 @@ export const roomCard = [
   },
   {
     id: 5,
+    type: 'coming-soon',
     src: '/assets/images/card/room_5.png',
     mode: 'Arena',
     modePath: FILTER_GAMEMODE.arena,
@@ -53,22 +70,48 @@ export const roomCard = [
     modePath: FILTER_GAMEMODE.zombieEscape,
     players: 64,
   },
-]
+])
+export const filterHideRoomCard = roomCard.filter((room) => !room.hide)
 
-export const buttons = [
+export const buttons = generateItem([
   {
     id: 7,
     text: 'Competitive 5v5',
-    mode: FILTER_GAMEMODE.fivevsfive,
+    modePath: FILTER_GAMEMODE.fivevsfive,
     activeClass: 'btn-active',
   },
-  { id: 1, text: 'Deathmatch', mode: FILTER_GAMEMODE.deathmatch },
-  { id: 2, text: 'Retake', mode: FILTER_GAMEMODE.retake },
-  { id: 3, text: 'Bhop', mode: FILTER_GAMEMODE.bhop },
-  { id: 4, text: 'Arena', mode: FILTER_GAMEMODE.arena },
-  { id: 5, text: 'Clutch', mode: FILTER_GAMEMODE.clutch },
-  { id: 6, text: 'Zoombie escape', mode: FILTER_GAMEMODE.zombieEscape },
-]
+  {
+    id: 1,
+    text: 'Deathmatch',
+    modePath: FILTER_GAMEMODE.deathmatch,
+  },
+  {
+    id: 2,
+    text: 'Retake',
+    modePath: FILTER_GAMEMODE.retake,
+  },
+  {
+    id: 3,
+    text: 'Bhop',
+    modePath: FILTER_GAMEMODE.bhop,
+  },
+  {
+    id: 4,
+    text: 'Arena',
+    modePath: FILTER_GAMEMODE.arena,
+  },
+  {
+    id: 5,
+    text: 'Clutch',
+    modePath: FILTER_GAMEMODE.clutch,
+  },
+  {
+    id: 6,
+    text: 'Zoombie escape',
+    modePath: FILTER_GAMEMODE.zombieEscape,
+  },
+])
+export const filterHideButtons = buttons.filter((room) => !room.hide)
 
 export const tableData = [
   {

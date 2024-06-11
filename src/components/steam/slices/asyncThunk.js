@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { getServerList } from 'services/steam'
-import { FILTER_GAMEMODE_VALUES, FILTER_GAMEMODE_QUERY } from 'utils/constants'
+import { FILTER_GAMEMODE_QUERY, FETCH_FILTER_GAMEMODE } from 'utils/constants'
 
 const fetchServerList = createAsyncThunk(
   'steam/fetchServerList',
@@ -17,7 +17,7 @@ const fetchServerList = createAsyncThunk(
 const fetchAllServerList = createAsyncThunk(
   'steam/fetchAllServerList',
   async () => {
-    const promises = FILTER_GAMEMODE_VALUES.map((key) => {
+    const promises = FETCH_FILTER_GAMEMODE.map((key) => {
       const filters = [{ key: 'gametype', value: FILTER_GAMEMODE_QUERY[key] }]
       return getServerList({ filters })
     })
