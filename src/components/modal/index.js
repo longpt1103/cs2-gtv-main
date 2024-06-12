@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { selectModals } from './selectors'
+import { selectModalShows } from './selectors'
 import BaseModal from './BaseModal'
 import Modal from './Modal'
 import { allViews } from './modalViews'
 import { showModal, useModal } from './helper'
 
 const Modals = () => {
-  const modals = useSelector(selectModals)
+  const modals = useSelector(selectModalShows)
   const renderModal = useCallback((type) => {
     const ModalComponent = allViews[type]
     if (ModalComponent) return <ModalComponent key={type} type={type} />

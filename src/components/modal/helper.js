@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectIsOpen } from './selectors'
+import { selectIsOpen, selectModalData } from './selectors'
 import { getDispatch } from 'utils/reduxStore'
 import { modalActions as actions } from './slices'
 
@@ -27,9 +27,9 @@ export const getMergeModalName = (
 }
 
 export const showModal = (type) => {
-  return () => {
+  return (data = {}) => {
     const dispatch = getDispatch()
-    const modal = { type }
+    const modal = { type, data }
     dispatch(actions.showModal({ modal }))
   }
 }
@@ -37,11 +37,13 @@ export const showModal = (type) => {
 export const useModal = (type) => {
   const dispatch = useDispatch()
   const isOpen = useSelector(selectIsOpen(type))
+  const data = useSelector(selectModalData(type))
   const onClose = useCallback(() => {
     dispatch(actions.hideModal({ type }))
   }, [type])
   return {
     isOpen,
     onClose,
+    data,
   }
 }

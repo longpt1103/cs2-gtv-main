@@ -7,6 +7,7 @@ import {
 } from './asyncThunk'
 import { saveAllStorage, clearLogout, checkUserSignIn } from 'utils/auth'
 import { getLinkSteamRedirect } from 'utils/steam'
+import modal from 'components/modal/provider'
 
 const { isSignIn, userInfo } = checkUserSignIn(true)
 const initialState = {
@@ -36,6 +37,12 @@ const getSteamInfo = (data = {}) => {
       avatar_url: data?.['avatar_url'] || '',
     },
   }
+}
+
+const logMessage = (data) => {
+  setTimeout(() => {
+    modal.common.open(data)
+  }, 500)
 }
 
 export const slice = createSlice({
@@ -111,8 +118,13 @@ export const slice = createSlice({
       state.steamInfo = steamInfo
       state.isPendingVerifier = false
     })
-    builder.addCase(postVerifierSteam.rejected, (state) => {
+    builder.addCase(postVerifierSteam.rejected, (state, action) => {
       state.isPendingVerifier = false
+      logMessage({
+        title:
+          action?.payload?.data?.Message ||
+          'Tài khoản steam đã được liên kết với tài khoản khác.',
+      })
     })
   },
 })

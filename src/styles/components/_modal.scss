@@ -12,5 +12,11 @@
         opacity: 0;
       }
     }
+    .modal-dialog {
+      &:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    }
   }
 }

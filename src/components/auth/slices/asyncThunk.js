@@ -35,9 +35,14 @@ const fetchSteamConfig = createAsyncThunk('auth/fetchSteamConfig', async () => {
 
 const postVerifierSteam = createAsyncThunk(
   'auth/verifierSteam',
-  async (data) => {
-    const response = await verifierSteam(data)
-    return { response }
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await verifierSteam(data)
+      return { response }
+    } catch (error) {
+      if (!error.data) throw error
+      return rejectWithValue(error)
+    }
   },
 )
 
