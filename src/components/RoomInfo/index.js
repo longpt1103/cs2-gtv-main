@@ -74,7 +74,7 @@ const RoomInfo = () => {
   const serverOnline = useSelector(selectServerOnline)
   return (
     <div className="room-card room-info">
-      <div className="mt-auto mb-auto mb-sm-0">
+      <div className="info-wrapper">
         <div className="info">
           {items.map(({ id, name, number: numberRoot, ...rest }) => {
             let number = numberRoot
@@ -94,18 +94,11 @@ const RoomInfo = () => {
           })}
         </div>
         <p className="server-info-text text-normal">
-          Giám sát máy chủ CS2/CSGO May chủ 5v5 - tại đây bạn tìm thấy các máy
-          chủ trực tuyến Counter-Strike 2/GO tốt nhất với xếp hạng tốt và phù
-          hợp với mọi sở thích. Chọn máy chủ CS2/CSGO mà bạn quan tâm từ danh
-          sách, sao chép địa chỉ máy chủ và tham gia. Chúng tôi chúc bạn một trò
-          chơi tốt! Sử dụng tính năng tìm kiếm thuận tiện cho các máy chủ
-          CS2/CSGO May chủ 5v5 để tìm máy chủ mà bạn quan tâm theo bất kỳ tiêu
-          chí nào của bạn. Giám sát của chúng tôi bao gồm hàng nghìn máy chủ
-          Counter-Strike 2/GO trên toàn thế giới và kiểm tra các máy chủ trực
-          tuyến mỗi phút và suốt ngày đêm. Trang này hiển thị các máy chủ
-          CS2/CSGO tốt nhất với tất cả dữ liệu cần thiết: mô tả máy chủ, quốc
-          gia, số lượng người chơi, máy chủ IP, hoạt động của người chơi trong
-          ngày qua, v.v.
+          Bên cạnh GPlay Premier, hệ thống giải đấu đầu tiên với cơ chế thăng
+          hạng xuống hạng dành riêng cho cộng đồng CS2 Việt Nam, GPlay - GTV
+          tiếp tục phát triển community server cho tựa game Counter-Strike 2.
+          Đây là sân chơi chất lượng, nơi mà sự công bằng và tính minh bạch được
+          đặt lên hàng đầu, cùng với mục tiêu chung là phát triển cộng đồng.
         </p>
       </div>
     </div>
