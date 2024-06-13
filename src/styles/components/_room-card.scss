@@ -47,7 +47,7 @@
         1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
     }
   }
-  .room-img {
+  .media-block {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -56,9 +56,24 @@
     right: 0;
     bottom: 0;
     object-fit: cover;
+    border-radius: var(--room-b-r);
+  }
+  .video {
+    display: none;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all 0.5s ease 0s;
+    border-radius: 12px;
+  }
+  .room-img {
+    object-fit: cover;
     object-position: center;
     border-radius: var(--room-b-r);
     user-select: none;
+    opacity: 0.3;
+    transition: all 0.5s ease 0s;
   }
   .status {
     position: absolute;
@@ -79,7 +94,7 @@
   &.has-overlay {
     &::before {
       content: '';
-      display: block;
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -93,13 +108,16 @@
     & > *:not(.room-img) {
       z-index: 2;
     }
+    .video {
+      z-index: 3;
+    }
   }
-  &:not(.room-info):not(.room-card--coming-soon) {
+  &:not(.room-info) {
     cursor: pointer;
-    &:hover {
-      &.has-overlay::before {
-        background: none;
-      }
+  }
+  &:not(.room-info):hover {
+    &.has-overlay::before {
+      background: none;
     }
   }
 }

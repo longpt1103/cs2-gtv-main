@@ -3,6 +3,10 @@ import {
   HIDE_FILTER_GAMEMODE,
   COMING_SOON_FILTER_GAMEMODE,
 } from 'utils/constants'
+import videoSrc5vs5 from 'assets/videos/5x5.mp4'
+import videoSrcArena from 'assets/videos/arena.mp4'
+import videoSrcBHop from 'assets/videos/bhop.mp4'
+import videoSrc2x2 from 'assets/videos/duels2x2.mp4'
 
 const generateItem = (items = []) => {
   return items.map((item) => {
@@ -23,6 +27,7 @@ export const roomCard = generateItem([
     mode: 'Competitive 5v5',
     modePath: FILTER_GAMEMODE.fivevsfive,
     players: 245,
+    srcVideo: videoSrc5vs5,
   },
   {
     id: 2,
@@ -38,6 +43,7 @@ export const roomCard = generateItem([
     mode: 'Retake',
     modePath: FILTER_GAMEMODE.retake,
     players: 0,
+    srcVideo: videoSrc2x2,
   },
   {
     id: 4,
@@ -46,6 +52,7 @@ export const roomCard = generateItem([
     mode: 'Bhop',
     modePath: FILTER_GAMEMODE.bhop,
     players: 0,
+    srcVideo: videoSrcBHop,
   },
   {
     id: 5,
@@ -54,6 +61,7 @@ export const roomCard = generateItem([
     mode: 'Arena',
     modePath: FILTER_GAMEMODE.arena,
     players: 130,
+    srcVideo: videoSrcArena,
   },
   {
     id: 6,

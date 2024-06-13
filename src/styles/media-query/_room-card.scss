@@ -58,3 +58,21 @@
     }
   }
 }
+
+.room-card {
+  &:not(.room-info):hover {
+    .room-img {
+      opacity: 0.7;
+      transition: 0.5s;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+    .video {
+      @include media-breakpoint-up(md) {
+        display: block;
+        opacity: 0.7;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ const ServerList = () => {
     <div className="room-card-view-container">
       <RoomInfo />
       {roomCard.map((room) => (
-        <RoomCard key={room.id} {...room} />
+        <RoomCard key={room.id} {...room} isHoverVideo={true} />
       ))}
     </div>
   )
