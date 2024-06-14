@@ -1,12 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { getServerList } from 'services/steam'
-import { FILTER_GAMEMODE_QUERY, FETCH_FILTER_GAMEMODE } from 'utils/constants'
+import {
+  getListPromisesGetAllServerList,
+  getFilterGetServerList,
+} from 'utils/services'
 
 const fetchServerList = createAsyncThunk(
   'steam/fetchServerList',
   async (props = {}) => {
     const { mode, ...params } = props
-    const response = await getServerList({ ...params })
+    const filters = getFilterGetServerList(mode)
+    const response = await getServerList({ filters, ...params })
     return {
       mode,
       response: response?.response || [],
@@ -17,10 +21,7 @@ const fetchServerList = createAsyncThunk(
 const fetchAllServerList = createAsyncThunk(
   'steam/fetchAllServerList',
   async () => {
-    const promises = FETCH_FILTER_GAMEMODE.map((key) => {
-      const filters = [{ key: 'gametype', value: FILTER_GAMEMODE_QUERY[key] }]
-      return getServerList({ filters })
-    })
+    const promises = getListPromisesGetAllServerList()
     const responses = await Promise.all(promises)
     return responses
   },

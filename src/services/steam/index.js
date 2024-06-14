@@ -16,7 +16,6 @@ export const getServerList = async ({
   const url = baseUrl.steamIGameServersService({
     path: 'GetServerList',
     query: new URLSearchParams({
-      limit,
       ...(filterString ? { filter: filterString } : {}),
       ...rest,
     }).toString(),

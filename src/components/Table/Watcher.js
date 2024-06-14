@@ -5,7 +5,6 @@ import { fetchServerList } from 'components/steam/slices/asyncThunk'
 import { steamActions as actions } from 'components/steam/slices'
 import { isIncludeGameModeParam } from 'utils/route'
 import { getServerListPage } from 'utils/steam'
-import { FILTER_GAMEMODE_QUERY } from 'utils/constants'
 
 const Watcher = () => {
   const dispatch = useDispatch()
@@ -14,8 +13,7 @@ const Watcher = () => {
   useEffect(() => {
     const mode = params?.mode
     if (isIncludeGameModeParam(mode)) {
-      const filters = [{ key: 'gametype', value: FILTER_GAMEMODE_QUERY[mode] }]
-      dispatch(fetchServerList({ mode, filters }))
+      dispatch(fetchServerList({ mode }))
     }
     return () => {
       dispatch(actions.resetPage())

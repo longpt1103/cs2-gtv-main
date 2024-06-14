@@ -30,20 +30,85 @@ export const FETCH_FILTER_GAMEMODE = [FILTER_GAMEMODE.fivevsfive]
 
 /**
  * filter exact with query filter to `IGameServersService` steam service
- * Ex: pathname = `zoombie-es but query = `zm`
+ * pathname = `zoombie-es` but query = `zm`
+ * Ex: gametype=zm
  */
+export const FILTER_KEYS = {
+  GAMETYPE: 'gametype',
+  ADDR: 'addr',
+}
 export const FILTER_GAMEMODE_QUERY = {
-  [FILTER_GAMEMODE.fivevsfive]: '5vs5',
-  [FILTER_GAMEMODE.deathmatch]: 'deathmatch',
-  [FILTER_GAMEMODE.retake]: 'retake',
-  [FILTER_GAMEMODE.bhop]: 'bhop',
-  [FILTER_GAMEMODE.arena]: 'arena',
-  [FILTER_GAMEMODE.clutch]: 'clutch',
-  [FILTER_GAMEMODE.zombieEscape]: 'zm',
+  [FILTER_GAMEMODE.fivevsfive]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: '5vs5',
+  },
+  [FILTER_GAMEMODE.deathmatch]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'deathmatch',
+  },
+  [FILTER_GAMEMODE.retake]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'retake',
+  },
+  [FILTER_GAMEMODE.bhop]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'bhop',
+  },
+  [FILTER_GAMEMODE.arena]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'arena',
+  },
+  [FILTER_GAMEMODE.clutch]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'clutch',
+  },
+  [FILTER_GAMEMODE.zombieEscape]: {
+    key: FILTER_KEYS.GAMETYPE,
+    value: 'zm',
+  },
+}
+
+/**
+ * filter exact with query filter to `IGameServersService` steam service
+ * Ex: addr=61.28.230.191
+ */
+export const FILTER_ADDR_QUERY = {
+  [FILTER_GAMEMODE.fivevsfive]: {
+    key: FILTER_KEYS.ADDR,
+    value: ['61.28.230.191'],
+  },
+  [FILTER_GAMEMODE.deathmatch]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
+  [FILTER_GAMEMODE.retake]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
+  [FILTER_GAMEMODE.bhop]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
+  [FILTER_GAMEMODE.arena]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
+  [FILTER_GAMEMODE.clutch]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
+  [FILTER_GAMEMODE.zombieEscape]: {
+    key: FILTER_KEYS.ADDR,
+    value: [],
+  },
 }
 
 export const FETCH_SERVER_LIST_ALL = 100
 export const FETCH_SERVER_LIMIT = 10 // limit or item per page
+export const ACCEPT_FILTER_QUERY = [
+  // FILTER_GAMEMODE_QUERY, // maybe use later
+  FILTER_ADDR_QUERY,
+]
 
 export const defaultPlaying = FETCH_FILTER_GAMEMODE.reduce((ob, mode) => {
   ob[mode] = {
