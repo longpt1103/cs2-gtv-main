@@ -13,6 +13,13 @@ import {
 
 const defaultPage = 1
 
+export const getModeFromPathName = () => {
+  const location = window.location
+  const pathname = location?.pathname || ''
+  const [, mode] = pathname.split('/').filter((path) => path)
+  return mode || ''
+}
+
 export const getLinkSteamRedirect = (steamConfigData = {}) => {
   let steamRedirectUri = ``
   const {
@@ -78,10 +85,9 @@ export const getServerListPage = (search = '') => {
 
 export const getInitServerListPage = () => {
   const location = window.location
-  const pathname = location?.pathname || ''
-  const [, mode] = pathname.split('/').filter((path) => path)
+  const mode = getModeFromPathName()
   if (mode && isIncludeGameModeParam(mode)) {
-    return getServerListPage(location.search)
+    return getServerListPage(location?.search || '')
   }
   return defaultPage
 }

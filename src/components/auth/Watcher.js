@@ -9,8 +9,9 @@ import {
   postVerifierSteam,
 } from 'components/auth/slices/asyncThunk'
 import { fetchAllServerList } from 'components/steam/slices/asyncThunk'
+import { isIncludeGameModeParam } from 'utils/route'
 import { clearAuthorizeQueryString, clearQueryString } from 'utils/auth'
-import { isReFreshCountData } from 'utils/steam'
+import { isReFreshCountData, getModeFromPathName } from 'utils/steam'
 
 const Watcher = () => {
   const dispatch = useDispatch()
@@ -59,6 +60,13 @@ const Watcher = () => {
   }, [verifier])
 
   useEffect(() => {
+    const mode = getModeFromPathName()
+    if (isIncludeGameModeParam(mode)) {
+      /**
+       * prevent load from detail route
+       * return here if you want stop loaded
+       */
+    }
     if (isReFreshCountData()) {
       dispatch(fetchAllServerList())
     }
