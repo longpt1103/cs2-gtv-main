@@ -60,7 +60,7 @@ export const getStartEndIndexPage = ({ page = 1, listLength }) => {
     end,
     disabledStart,
     disabledEnd,
-    isHide: page > maxPage,
+    isHide: (page > maxPage) | (maxPage === 1),
   }
 }
 

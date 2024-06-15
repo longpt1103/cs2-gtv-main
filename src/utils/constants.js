@@ -1,7 +1,7 @@
 export const TIME_EXPIRE_TOKEN = 1 * 60 * 60 * 1000 // 1 hours
 export const EXPIRE_BEFORE = 5 * 60 * 1000 // expire when `now > expireTokenAt - EXPIRE_BEFORE`
 export const STEAM_API_KEY = '8356942B53F59221CA7E1DB40C99E539'
-export const EXPIRE_BEFORE_FETCH_ALL = 2 * 60 * 60 * 1000 // 2 hours
+export const EXPIRE_BEFORE_FETCH_ALL = 0 * 60 * 60 * 1000 // 0 hours
 export const GAME_APP_ID = 730 // Cs2
 
 // filter exact with pathname
