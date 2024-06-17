@@ -5,7 +5,7 @@
   width: var(--left-drawer-width);
   height: 100vh;
   background: var(--color-bgPrimary);
-  overflow: hidden;
+
   &.centered-menu {
     justify-content: center;
     .logo-top {
@@ -49,9 +49,12 @@
       align-items: center;
       padding: 1rem 0;
       width: 100%;
-      cursor: pointer;
       color: var(--color-contentTertiary);
+      background: transparent;
       text-decoration: none;
+      cursor: pointer;
+      border: 0;
+      border-radius: 0;
       .item-text {
         margin-top: 0.25rem;
       }
@@ -82,6 +85,27 @@
           bottom: 0;
           height: 100%;
           background: var(--color-game-red);
+        }
+      }
+      &:hover {
+        .tooltip {
+          opacity: 1;
+        }
+      }
+      .tooltip {
+        position: absolute;
+        top: 50% !important;
+        left: 100% !important;
+        transform: translateY(-50%) !important;
+        margin-left: 0.5rem;
+        z-index: var(--bs-tooltip-zindex);
+        transition: opacity 0.15s linear;
+        inset: 0px auto auto 0px;
+        white-space: nowrap;
+        .tooltip-arrow {
+          position: absolute;
+          top: 0px;
+          transform: translate(0px, 18px);
         }
       }
     }

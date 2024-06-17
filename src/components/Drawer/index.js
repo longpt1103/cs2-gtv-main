@@ -1,6 +1,5 @@
 import { NavLink, Link } from 'react-router-dom'
 import { routes } from 'route-path'
-import { UncontrolledTooltip } from 'reactstrap'
 import { ReactComponent as LogoIcon } from 'assets/icons/logo.svg'
 import { ReactComponent as BanIcon } from 'assets/icons/ban.svg'
 import { ReactComponent as MutedIcon } from 'assets/icons/muted.svg'
@@ -24,14 +23,16 @@ const NavLinkItem = ({ id, text = '', icon: Icon }) => {
         <span className="item-text text-normal fw-bold text-color-contentTertiary">
           {text}
         </span>
+        <div
+          className="tooltip custom-tooltip bs-tooltip-auto"
+          data-popper-placement="right"
+        >
+          <div className="tooltip-inner" role="tooltip">
+            Coming soon
+          </div>
+          <span className="arrow tooltip-arrow"></span>
+        </div>
       </a>
-      <UncontrolledTooltip
-        placement="right"
-        target={'Tooltip-' + id}
-        popperClassName="custom-tooltip"
-      >
-        Coming soon
-      </UncontrolledTooltip>
     </>
   )
 }
