@@ -64,7 +64,7 @@ const Drawer = () => {
     <div className="drawer centered-menu saira-extra-condensed">
       <Link className="logo-top" to="/">
         <LogoIcon className="logo-icon" />
-        <div className="logo-text">Gplay CS2 Community Server</div>
+        <div className="logo-text">GPlay CS2 Community Server</div>
       </Link>
       <div className="menu">
         <NavLinkHome />

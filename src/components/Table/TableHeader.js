@@ -6,7 +6,7 @@ const TableHeader = () => {
         <th>Server</th>
         <th>IP</th>
         <th>Port</th>
-        <th>Ping</th>
+        <th>Location</th>
         <th>Player</th>
         <th>Map</th>
         <th>Connect</th>

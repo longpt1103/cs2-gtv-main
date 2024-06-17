@@ -3,10 +3,6 @@ import {
   HIDE_FILTER_GAMEMODE,
   COMING_SOON_FILTER_GAMEMODE,
 } from 'utils/constants'
-import videoSrc5vs5 from 'assets/videos/5x5.mp4'
-import videoSrcArena from 'assets/videos/arena.mp4'
-import videoSrcBHop from 'assets/videos/bhop.mp4'
-import videoSrc2x2 from 'assets/videos/duels2x2.mp4'
 
 const generateItem = (items = []) => {
   return items.map((item) => {
@@ -23,11 +19,11 @@ export const roomCard = generateItem([
   {
     id: 1,
     type: 'new',
-    src: '/assets/images/card/room_1.png',
+    src: 'https://cdn-data.gtvplus.vn/cs2/mode/image/5X5.webp',
     mode: 'Competitive 5v5',
     modePath: FILTER_GAMEMODE.fivevsfive,
     players: 245,
-    srcVideo: videoSrc5vs5,
+    srcVideo: 'https://cdn-data.gtvplus.vn/cs2/mode/video/5X5.mp4',
   },
   {
     id: 2,
@@ -39,29 +35,29 @@ export const roomCard = generateItem([
   {
     id: 3,
     type: 'coming-soon',
-    src: '/assets/images/card/room_3.png',
+    src: 'https://cdn-data.gtvplus.vn/cs2/mode/image/DUELS2X2.webp',
     mode: 'Retake',
     modePath: FILTER_GAMEMODE.retake,
     players: 0,
-    srcVideo: videoSrc2x2,
+    srcVideo: 'https://cdn-data.gtvplus.vn/cs2/mode/video/DUELS2X2.mp4',
   },
   {
     id: 4,
     type: 'coming-soon',
-    src: '/assets/images/card/room_4.png',
+    src: 'https://cdn-data.gtvplus.vn/cs2/mode/image/BHOP.webp',
     mode: 'Bhop',
     modePath: FILTER_GAMEMODE.bhop,
     players: 0,
-    srcVideo: videoSrcBHop,
+    srcVideo: 'https://cdn-data.gtvplus.vn/cs2/mode/video/BHOP.mp4',
   },
   {
     id: 5,
     type: 'coming-soon',
-    src: '/assets/images/card/room_5.png',
+    src: 'https://cdn-data.gtvplus.vn/cs2/mode/image/ARENA.webp',
     mode: 'Arena',
     modePath: FILTER_GAMEMODE.arena,
     players: 130,
-    srcVideo: videoSrcArena,
+    srcVideo: 'https://cdn-data.gtvplus.vn/cs2/mode/video/ARENA.mp4',
   },
   {
     id: 6,

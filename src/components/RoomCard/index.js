@@ -30,21 +30,23 @@ const Video = ({ srcVideo = null, videoCompRef }) => {
   const ref = useRef(null)
   useImperativeHandle(
     videoCompRef,
-    () => {
-      return {
-        play() {
-          const video = ref.current
-          if (video) video.play()
-        },
-        stop() {
-          const video = ref.current
-          if (video) {
-            video.pause()
-            video.currentTime = 0
-          }
-        },
-      }
-    },
+    () => ({
+      play() {
+        const video = ref.current
+        if (video && video.paused) {
+          video.play().catch((error) => {
+            console.error('Failed to start playback:', error)
+          })
+        }
+      },
+      stop() {
+        const video = ref.current
+        if (video) {
+          video.pause()
+          video.currentTime = 0
+        }
+      },
+    }),
     [],
   )
   return (

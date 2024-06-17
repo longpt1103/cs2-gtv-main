@@ -46,12 +46,12 @@ const Item = memo(({ item = defaultItem, count }) => {
   const {
     name = '',
     addr = '',
-    ping,
     players = 0,
     max_players = 0,
     map = '',
     gameport = 0,
   } = item
+  const ping = 'Vietnam'
   const [ip, port] = addr.split(':')
   return (
     <>
@@ -63,7 +63,7 @@ const Item = memo(({ item = defaultItem, count }) => {
         <td>{gameport || port}</td>
         <td
           className={`text-game-${ping === 20 ? 'green' : 'yellow'}`}
-        >{`${ping}ms`}</td>
+        >{`${ping}`}</td>
         <td>{`${players}/${max_players}`}</td>
         <td>{map}</td>
         <td>
