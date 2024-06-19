@@ -45,7 +45,6 @@ export const createService = (
   instance.interceptors.request.use((requestConfig) => {
     // Do something before request is sent
     const token = getTokenFromLocal()
-    console.log({ tokenRequest: token })
     const { headers = {} } = requestConfig
     if (token && !skipAuthorization) {
       headers['Authorization'] = 'Bearer ' + token

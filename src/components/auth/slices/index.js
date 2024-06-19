@@ -19,9 +19,6 @@ const initialState = {
   steamId: null,
   steamInfo: null,
 }
-console.log({
-  authInitialState: initialState,
-})
 
 const resetState = () => ({
   ...initialState,
@@ -60,7 +57,6 @@ export const slice = createSlice({
       const { response, token } = action.payload
       const userInfo = response?.Data || response?.data || null
       if (userInfo) {
-        console.log('fetchUserInfo.fulfilled', { userInfo })
         state.isSignIn = true
         state.userInfo = userInfo
         saveAllStorage({
@@ -70,7 +66,6 @@ export const slice = createSlice({
       }
     })
     builder.addCase(fetchUserInfo.rejected, (state, action) => {
-      console.log('fetchUserInfo.rejected', { action })
       clearLogout()
       return resetState()
     })
@@ -111,7 +106,6 @@ export const slice = createSlice({
     })
     builder.addCase(postVerifierSteam.fulfilled, (state, { payload }) => {
       const { response } = payload
-      console.log('postVerifierSteam.fulfilled: ', { response })
       const data = response.Data || response.data || {}
       const { steamId, steamInfo } = getSteamInfo(data)
       state.steamId = steamId

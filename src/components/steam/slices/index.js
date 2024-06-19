@@ -17,10 +17,6 @@ const initialState = {
   playing: getPlayingFromLocal(),
 }
 
-console.log({
-  steamReducer: initialState,
-})
-
 export const slice = createSlice({
   name: 'steam',
   initialState,
@@ -70,7 +66,6 @@ export const slice = createSlice({
       state.isPendingFetchAll = true
     })
     builder.addCase(fetchAllServerList.fulfilled, (state, { payload }) => {
-      console.log('fetchAllServerList.fulfilled', { payload })
       const playingState = { ...state.playing }
       for (let i = 0; i < payload.length; i++) {
         const servers = payload[i]?.response?.servers || []
@@ -90,7 +85,6 @@ export const slice = createSlice({
       setLastTimeSavePlaying(new Date().getTime())
     })
     builder.addCase(fetchAllServerList.rejected, (state, action) => {
-      console.log('fetchAllServerList.rejected', { action })
       state.isPendingFetchAll = false
     })
   },

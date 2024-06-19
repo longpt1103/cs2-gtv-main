@@ -44,14 +44,9 @@ export const clearAuthorizeQueryString = () => {
   const location = window.location
   const searchParams = new URLSearchParams(location?.search)
   const pathname = location.pathname
-  console.log('clearAuthorizeQueryString: ', {
-    location,
-    search: location?.search,
-  })
   const hasAuthorizeQuery = searchParams.has('authorize_code')
   if (hasAuthorizeQuery && pathname) {
     // clear query string
-    console.log('come here `history.replace({ pathname })`')
     history.replace({ pathname, search: '' })
   }
 }
