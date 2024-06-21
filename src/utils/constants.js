@@ -75,7 +75,7 @@ export const FILTER_GAMEMODE_QUERY = {
 export const FILTER_ADDR_QUERY = {
   [FILTER_GAMEMODE.fivevsfive]: {
     key: FILTER_KEYS.ADDR,
-    value: ['61.28.230.191'],
+    value: ['61.28.230.134'],
   },
   [FILTER_GAMEMODE.deathmatch]: {
     key: FILTER_KEYS.ADDR,
